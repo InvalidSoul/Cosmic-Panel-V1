@@ -37,7 +37,6 @@ Players.PlayerAdded:Connect(function(Player)
 	task.wait()
 	until Success
 	
-	task.wait(2.5)
 	if CosmicPanelAPI.CheckWhitelist(Player.Name) == true then
 		local ClonedPanel = PanelGui:Clone()
 		ClonedPanel.Parent = Player:WaitForChild("PlayerGui")
