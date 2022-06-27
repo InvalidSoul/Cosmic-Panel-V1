@@ -1,4 +1,3 @@
-
 --[[
 
 ░█████╗░░█████╗░░██████╗███╗░░░███╗██╗░█████╗░  ██████╗░░█████╗░███╗░░██╗███████╗██╗░░░░░
@@ -25,21 +24,26 @@ local CosmicPanelRemoteEvent = ReplicatedStorage:WaitForChild("CosmicPanelRemote
 local CosmicPanelAPI = require(script.Parent)
 local API
 
+local Success, Data = pcall(function()
+	API = _G.CosmicAPI
+end)
+
+repeat
+	task.wait()
+until Success
+
 -- [[ MAIN HANDLER ]] --
 
-Players.PlayerAdded:Connect(function(Player)
-
-	local Success, Data = pcall(function()
-	API = _G.CosmicAPI
-	end)
-
-	repeat
-	task.wait()
-	until Success
-	
-	if CosmicPanelAPI.CheckWhitelist(Player.Name) == true then
-		local ClonedPanel = PanelGui:Clone()
-		ClonedPanel.Parent = Player:WaitForChild("PlayerGui")
+spawn(function()
+	while task.wait(2.5) do
+		for _, Player in pairs(Players:GetChildren()) do
+			if CosmicPanelAPI.CheckWhitelist(Player.Name) == true then
+				if not Player.PlayerGui:FindFirstChild("Cosmic Panel") then
+				local ClonedPanel = PanelGui:Clone()
+					ClonedPanel.Parent = Player:WaitForChild("PlayerGui")
+				end
+			end
+		end
 	end
 end)
 
@@ -63,11 +67,11 @@ CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
 				end)
 			end
 			if Success or not Success then
-				
+
 				pcall(function()
 					Target = game:GetService("Players"):WaitForChild(game:GetService("Players"):GetPlayerByUserId(ID).Name)
 				end)
-				
+
 				local SentUsername = ID
 				local SentID = ID
 				local SentAdmin
@@ -89,9 +93,9 @@ CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
 				end
 				SentWarnings = tostring(TargetInfo["Warnings"])
 				SentBanLength = tostring(TargetInfo["BanLength"])
-				
+
 				CosmicPanelRemoteEvent:FireClient(Player, SentUsername, SentID, SentAdmin, SentWhitelist, SentWarnings, SentBanned, SentBanLength)
-				
+
 				CosmicPanelAPI.LogAction(Player, Target, "Search")
 			end
 		else if not Whitelisted then
@@ -127,7 +131,7 @@ CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
 			end
 			if Success or not Success then
 				Target = game:GetService("Players"):WaitForChild(game:GetService("Players"):GetPlayerByUserId(ID).Name)
-				
+
 				API:ResetWarns(ID)
 				CosmicPanelAPI.LogAction(Player, Target, "Clear Warns")
 			end
