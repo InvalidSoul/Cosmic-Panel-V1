@@ -25,17 +25,18 @@ local CosmicPanelRemoteEvent = ReplicatedStorage:WaitForChild("CosmicPanelRemote
 local CosmicPanelAPI = require(script.Parent)
 local API
 
-local Success, Data = pcall(function()
-	API = _G.CosmicAPI
-end)
-
-repeat
-	task.wait()
-until Success
-
 -- [[ MAIN HANDLER ]] --
 
 Players.PlayerAdded:Connect(function(Player)
+
+	local Success, Data = pcall(function()
+	API = _G.CosmicAPI
+	end)
+
+	repeat
+	task.wait()
+	until Success
+	
 	task.wait(2.5)
 	if CosmicPanelAPI.CheckWhitelist(Player.Name) == true then
 		local ClonedPanel = PanelGui:Clone()
