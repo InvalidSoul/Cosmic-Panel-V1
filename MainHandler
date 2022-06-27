@@ -1,0 +1,180 @@
+
+--[[
+
+░█████╗░░█████╗░░██████╗███╗░░░███╗██╗░█████╗░  ██████╗░░█████╗░███╗░░██╗███████╗██╗░░░░░
+██╔══██╗██╔══██╗██╔════╝████╗░████║██║██╔══██╗  ██╔══██╗██╔══██╗████╗░██║██╔════╝██║░░░░░
+██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║██║░░╚═╝  ██████╔╝███████║██╔██╗██║█████╗░░██║░░░░░
+██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║██║░░██╗  ██╔═══╝░██╔══██║██║╚████║██╔══╝░░██║░░░░░
+╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║██║╚█████╔╝  ██║░░░░░██║░░██║██║░╚███║███████╗███████╗
+░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░╚════╝░  ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚══╝╚══════╝╚══════╝
+
+]]-- 
+
+--[[ PRE SETUP ]] --
+
+local CosmicPanelRemoteInstance = Instance.new("RemoteEvent", game:GetService("ReplicatedStorage"))
+CosmicPanelRemoteInstance.Name = "CosmicPanelRemoteEvent"
+
+-- [[ VARIABLES ]] --
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local PanelGui = script:WaitForChild("Cosmic Panel", math.huge)
+
+local CosmicPanelRemoteEvent = ReplicatedStorage:WaitForChild("CosmicPanelRemoteEvent", math.huge)
+local CosmicPanelAPI = require(script.Parent)
+local API
+
+local Success, Data = pcall(function()
+	API = _G.CosmicAPI
+end)
+
+repeat
+	task.wait()
+until Success
+
+-- [[ MAIN HANDLER ]] --
+
+Players.PlayerAdded:Connect(function(Player)
+	task.wait(2.5)
+	if CosmicPanelAPI.CheckWhitelist(Player.Name) == true then
+		local ClonedPanel = PanelGui:Clone()
+		ClonedPanel.Parent = Player:WaitForChild("PlayerGui")
+	end
+end)
+
+CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
+	if Action == "Search" then
+		local Whitelisted = CosmicPanelAPI.CheckWhitelist(Player.Name)
+		if Whitelisted and game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+			local ID
+			local Target
+			local Success, Response = pcall(function()
+				ID = game:GetService("Players"):GetPlayerByUserId(User)
+			end)
+			if not Success then
+				pcall(function()
+					ID = game.Players:GetUserIdFromNameAsync(User)
+				end)
+			end
+			if Success then
+				pcall(function()
+					ID = User
+				end)
+			end
+			if Success or not Success then
+				
+				pcall(function()
+					Target = game:GetService("Players"):WaitForChild(game:GetService("Players"):GetPlayerByUserId(ID).Name)
+				end)
+				
+				local SentUsername = ID
+				local SentID = ID
+				local SentAdmin
+				local SentWhitelist
+				local SentWarnings
+				local SentBanned
+				local SentBanLength
+
+				local TargetInfo = API.GetPlayerInfo(ID)
+
+				if TargetInfo["Admin"] then
+					SentAdmin = true
+				end
+				if CosmicPanelAPI.CheckWhitelist(game.Players:GetNameFromUserIdAsync(ID)) then
+					SentWhitelist = true
+				end
+				if TargetInfo["Banned"] then
+					SentBanned = true
+				end
+				SentWarnings = tostring(TargetInfo["Warnings"])
+				SentBanLength = tostring(TargetInfo["BanLength"])
+				
+				CosmicPanelRemoteEvent:FireClient(Player, SentUsername, SentID, SentAdmin, SentWhitelist, SentWarnings, SentBanned, SentBanLength)
+				
+				CosmicPanelAPI.LogAction(Player, Target, "Search")
+			end
+		else if not Whitelisted then
+				Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 1")
+				CosmicPanelAPI.LogBypass(Player, "1")
+			end
+		end
+	end
+	if not game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+		Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 2")
+		CosmicPanelAPI.LogBypass(Player, "2")
+	end
+end)
+
+CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
+	if Action == "Clear Warns" then
+		local Whitelisted = CosmicPanelAPI.CheckWhitelist(Player.Name)
+		if Whitelisted and game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+			local ID
+			local Target
+			local Success, Response = pcall(function()
+				ID = game:GetService("Players"):GetPlayerByUserId(User)
+			end)
+			if not Success then
+				pcall(function()
+					ID = game.Players:GetUserIdFromNameAsync(User)
+				end)
+			end
+			if Success then
+				pcall(function()
+					ID = User
+				end)
+			end
+			if Success or not Success then
+				Target = game:GetService("Players"):WaitForChild(game:GetService("Players"):GetPlayerByUserId(ID).Name)
+				
+				API:ResetWarns(ID)
+				CosmicPanelAPI.LogAction(Player, Target, "Clear Warns")
+			end
+		else if not Whitelisted then
+				Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 1")
+				CosmicPanelAPI.LogBypass(Player, "1")
+			end
+		end
+	end
+	if not game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+		Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 2")
+		CosmicPanelAPI.LogBypass(Player, "2")
+	end
+end)
+
+CosmicPanelRemoteEvent.OnServerEvent:Connect(function(Player, User, Action)
+	if Action == "Unban" then
+		local Whitelisted = CosmicPanelAPI.CheckWhitelist(Player.Name)
+		if Whitelisted and game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+			local ID
+			local Target
+			local Success, Response = pcall(function()
+				ID = game:GetService("Players"):GetPlayerByUserId(User)
+			end)
+			if not Success then
+				pcall(function()
+					ID = game.Players:GetUserIdFromNameAsync(User)
+				end)
+			end
+			if Success then
+				pcall(function()
+					ID = User
+				end)
+			end
+			if Success or not Success then
+				Target = game:GetService("Players"):WaitForChild(game:GetService("Players"):GetPlayerByUserId(ID).Name)
+				API:Unban(ID)
+				CosmicPanelAPI.LogAction(Player, Target, "Unban")
+			end
+		else if not Whitelisted then
+				Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 1")
+				CosmicPanelAPI.LogBypass(Player, "1")
+			end
+		end
+	end
+	if not game.Players:FindFirstChild(Player.Name).PlayerGui:FindFirstChild("Cosmic Panel") then
+		Player:Kick("Cosmic Panel Bypass Detected | Debug ID: 2")
+		CosmicPanelAPI.LogBypass(Player, "2")
+	end
+end)
