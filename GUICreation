@@ -1,3 +1,4 @@
+print("main gui loaded")
 local CosmicPanel = Instance.new("ScreenGui")
 local MainBackround = Instance.new("ImageLabel")
 local MainBackroundCorner = Instance.new("UICorner")
