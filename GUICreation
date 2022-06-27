@@ -1,0 +1,792 @@
+local CosmicPanel = Instance.new("ScreenGui")
+local MainBackround = Instance.new("ImageLabel")
+local MainBackroundCorner = Instance.new("UICorner")
+local TitleBackround = Instance.new("Frame")
+local TitleBackroundCorner = Instance.new("UICorner")
+local MainTitle = Instance.new("TextLabel")
+local Refresh = Instance.new("ImageLabel")
+local RefreshButton = Instance.new("TextButton")
+local SecondaryBackround = Instance.new("Frame")
+local SecondaryBackroundCorner = Instance.new("UICorner")
+local SearchUser = Instance.new("Frame")
+local SearchUserCorner = Instance.new("UICorner")
+local SearchUserText = Instance.new("TextBox")
+local UserInfoPanel = Instance.new("Frame")
+local UserInfoCorner = Instance.new("UICorner")
+local HeadShot = Instance.new("Frame")
+local HeadShotCorner = Instance.new("UICorner")
+local HeadShotImage = Instance.new("ImageLabel")
+local HeadImageCorner = Instance.new("UICorner")
+local Name = Instance.new("Frame")
+local NameCorner = Instance.new("UICorner")
+local NameLabel = Instance.new("TextLabel")
+local ID = Instance.new("Frame")
+local IDCorner = Instance.new("UICorner")
+local IDLabel = Instance.new("TextLabel")
+local Admin = Instance.new("Frame")
+local AdminCorner = Instance.new("UICorner")
+local AdminLabel = Instance.new("TextLabel")
+local Warns = Instance.new("Frame")
+local WarnsCorner = Instance.new("UICorner")
+local WarnsLabel = Instance.new("TextLabel")
+local Banned = Instance.new("Frame")
+local BannedCorner = Instance.new("UICorner")
+local BannedLabel = Instance.new("TextLabel")
+local BanLength = Instance.new("Frame")
+local BanLengthCorner = Instance.new("UICorner")
+local BanLengthLabel = Instance.new("TextLabel")
+local ClearWarns = Instance.new("Frame")
+local ClearWarnsCounter = Instance.new("UICorner")
+local ClearWarnsLabel = Instance.new("TextLabel")
+local ClearWarnsButton = Instance.new("TextButton")
+local Unban = Instance.new("Frame")
+local WarnsCorner_2 = Instance.new("UICorner")
+local UnbanLabel = Instance.new("TextLabel")
+local UnbanButton = Instance.new("TextButton")
+local Whitelisted = Instance.new("Frame")
+local WhitelistedCorner = Instance.new("UICorner")
+local WhitelistedLabel = Instance.new("TextLabel")
+
+--Properties:
+
+CosmicPanel.Name = "Cosmic Panel"
+CosmicPanel.Parent = game.ServerScriptService.CosmicPanel.MainHandler
+CosmicPanel.Enabled = false
+CosmicPanel.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CosmicPanel.ResetOnSpawn = false
+
+MainBackround.Name = "MainBackround"
+MainBackround.Parent = CosmicPanel
+MainBackround.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainBackround.BackgroundTransparency = 1.000
+MainBackround.Position = UDim2.new(0.317368388, 0, 0.230958223, 0)
+MainBackround.Size = UDim2.new(0.365263164, 0, 0.536855042, 0)
+MainBackround.Image = "rbxassetid://9703079470"
+MainBackround.ImageTransparency = 1.000
+
+MainBackroundCorner.CornerRadius = UDim.new(0, 20)
+MainBackroundCorner.Name = "MainBackroundCorner"
+MainBackroundCorner.Parent = MainBackround
+
+TitleBackround.Name = "TitleBackround"
+TitleBackround.Parent = MainBackround
+TitleBackround.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+TitleBackround.BackgroundTransparency = 1.000
+TitleBackround.Position = UDim2.new(0.0129682999, 0, 0.0233017411, 0)
+TitleBackround.Size = UDim2.new(0.972622514, 0, 0.130434781, 0)
+
+TitleBackroundCorner.CornerRadius = UDim.new(0, 15)
+TitleBackroundCorner.Name = "TitleBackroundCorner"
+TitleBackroundCorner.Parent = TitleBackround
+
+MainTitle.Name = "MainTitle"
+MainTitle.Parent = TitleBackround
+MainTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainTitle.BackgroundTransparency = 1.000
+MainTitle.Position = UDim2.new(0.0134127215, 0, 0.0526315793, 0)
+MainTitle.Size = UDim2.new(0.864452064, 0, 0.877192974, 0)
+MainTitle.Font = Enum.Font.GothamBold
+MainTitle.Text = "Cosmic AntiCheat Panel"
+MainTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+MainTitle.TextScaled = true
+MainTitle.TextSize = 14.000
+MainTitle.TextTransparency = 1.000
+MainTitle.TextWrapped = true
+
+Refresh.Name = "Refresh"
+Refresh.Parent = TitleBackround
+Refresh.BackgroundTransparency = 1.000
+Refresh.Position = UDim2.new(0.913030982, 0, 0.0877192914, 0)
+Refresh.Size = UDim2.new(0.072076112, 0, 0.84210521, 0)
+Refresh.Image = "rbxassetid://4335476290"
+Refresh.ImageTransparency = 1.000
+Refresh.ScaleType = Enum.ScaleType.Fit
+
+RefreshButton.Name = "RefreshButton"
+RefreshButton.Parent = Refresh
+RefreshButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RefreshButton.BackgroundTransparency = 1.000
+RefreshButton.Size = UDim2.new(0.999998689, 0, 1, 0)
+RefreshButton.Font = Enum.Font.SourceSans
+RefreshButton.Text = ""
+RefreshButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+RefreshButton.TextSize = 14.000
+RefreshButton.TextTransparency = 1.000
+
+SecondaryBackround.Name = "SecondaryBackround"
+SecondaryBackround.Parent = MainBackround
+SecondaryBackround.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+SecondaryBackround.BackgroundTransparency = 1.000
+SecondaryBackround.Position = UDim2.new(0.0129682999, 0, 0.172043175, 0)
+SecondaryBackround.Size = UDim2.new(0.972622514, 0, 0.805491984, 0)
+
+SecondaryBackroundCorner.CornerRadius = UDim.new(0, 20)
+SecondaryBackroundCorner.Name = "SecondaryBackroundCorner"
+SecondaryBackroundCorner.Parent = SecondaryBackround
+
+SearchUser.Name = "SearchUser"
+SearchUser.Parent = SecondaryBackround
+SearchUser.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+SearchUser.BackgroundTransparency = 1.000
+SearchUser.Position = UDim2.new(0.0129682999, 0, 0.0233017411, 0)
+SearchUser.Size = UDim2.new(0.972622514, 0, 0.130434781, 0)
+
+SearchUserCorner.CornerRadius = UDim.new(0, 20)
+SearchUserCorner.Name = "SearchUserCorner"
+SearchUserCorner.Parent = SearchUser
+
+SearchUserText.Name = "SearchUserText"
+SearchUserText.Parent = SearchUser
+SearchUserText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SearchUserText.BackgroundTransparency = 1.000
+SearchUserText.Size = UDim2.new(0.998705149, 0, 0.980113626, 0)
+SearchUserText.Font = Enum.Font.GothamBold
+SearchUserText.Text = "Search by ID/Username"
+SearchUserText.TextColor3 = Color3.fromRGB(255, 255, 255)
+SearchUserText.TextScaled = true
+SearchUserText.TextSize = 14.000
+SearchUserText.TextTransparency = 1.000
+SearchUserText.TextWrapped = true
+
+UserInfoPanel.Name = "UserInfoPanel"
+UserInfoPanel.Parent = SecondaryBackround
+UserInfoPanel.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+UserInfoPanel.BackgroundTransparency = 1.000
+UserInfoPanel.Position = UDim2.new(0.0137457047, 0, 0.173295453, 0)
+UserInfoPanel.Size = UDim2.new(0.972890437, 0, 0.798295438, 0)
+
+UserInfoCorner.CornerRadius = UDim.new(0, 20)
+UserInfoCorner.Name = "UserInfoCorner"
+UserInfoCorner.Parent = UserInfoPanel
+
+HeadShot.Name = "HeadShot"
+HeadShot.Parent = UserInfoPanel
+HeadShot.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+HeadShot.BackgroundTransparency = 1.000
+HeadShot.Position = UDim2.new(0.0149999997, 0, 0.0299999993, 0)
+HeadShot.Size = UDim2.new(0.199372053, 0, 0.43416369, 0)
+
+HeadShotCorner.CornerRadius = UDim.new(0, 20)
+HeadShotCorner.Name = "HeadShotCorner"
+HeadShotCorner.Parent = HeadShot
+
+HeadShotImage.Name = "HeadShotImage"
+HeadShotImage.Parent = HeadShot
+HeadShotImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HeadShotImage.BackgroundTransparency = 1.000
+HeadShotImage.BorderColor3 = Color3.fromRGB(27, 42, 53)
+HeadShotImage.Size = UDim2.new(1, 0, 0.991803288, 0)
+HeadShotImage.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+HeadShotImage.ImageTransparency = 1.000
+
+HeadImageCorner.CornerRadius = UDim.new(0, 20)
+HeadImageCorner.Name = "HeadImageCorner"
+HeadImageCorner.Parent = HeadShotImage
+
+Name.Name = "Name"
+Name.Parent = UserInfoPanel
+Name.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Name.BackgroundTransparency = 1.000
+Name.Position = UDim2.new(0.229000077, 0, 0.0299999733, 0)
+Name.Size = UDim2.new(0.370000005, 0, 0.202000007, 0)
+
+NameCorner.CornerRadius = UDim.new(0, 20)
+NameCorner.Name = "NameCorner"
+NameCorner.Parent = Name
+
+NameLabel.Name = "NameLabel"
+NameLabel.Parent = Name
+NameLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameLabel.BackgroundTransparency = 1.000
+NameLabel.Position = UDim2.new(0.0212143064, 0, 0, 0)
+NameLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+NameLabel.Font = Enum.Font.GothamBold
+NameLabel.Text = "User:"
+NameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameLabel.TextScaled = true
+NameLabel.TextSize = 14.000
+NameLabel.TextTransparency = 1.000
+NameLabel.TextWrapped = true
+
+ID.Name = "ID"
+ID.Parent = UserInfoPanel
+ID.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+ID.BackgroundTransparency = 1.000
+ID.Position = UDim2.new(0.612999976, 0, 0.0299999733, 0)
+ID.Size = UDim2.new(0.370000005, 0, 0.202000007, 0)
+
+IDCorner.CornerRadius = UDim.new(0, 20)
+IDCorner.Name = "IDCorner"
+IDCorner.Parent = ID
+
+IDLabel.Name = "IDLabel"
+IDLabel.Parent = ID
+IDLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+IDLabel.BackgroundTransparency = 1.000
+IDLabel.Position = UDim2.new(0.0212143064, 0, 0, 0)
+IDLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+IDLabel.Font = Enum.Font.GothamBold
+IDLabel.Text = "ID:"
+IDLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+IDLabel.TextScaled = true
+IDLabel.TextSize = 14.000
+IDLabel.TextTransparency = 1.000
+IDLabel.TextWrapped = true
+
+Admin.Name = "Admin"
+Admin.Parent = UserInfoPanel
+Admin.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Admin.BackgroundTransparency = 1.000
+Admin.Position = UDim2.new(0.228384584, 0, 0.257757992, 0)
+Admin.Size = UDim2.new(0.370615423, 0, 0.202000007, 0)
+
+AdminCorner.CornerRadius = UDim.new(0, 20)
+AdminCorner.Name = "AdminCorner"
+AdminCorner.Parent = Admin
+
+AdminLabel.Name = "AdminLabel"
+AdminLabel.Parent = Admin
+AdminLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AdminLabel.BackgroundTransparency = 1.000
+AdminLabel.Position = UDim2.new(0.0466519222, 0, 0.0176174194, 0)
+AdminLabel.Size = UDim2.new(0.906000018, 0, 0.986575484, 0)
+AdminLabel.Font = Enum.Font.GothamBold
+AdminLabel.Text = "Admin:"
+AdminLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+AdminLabel.TextScaled = true
+AdminLabel.TextSize = 14.000
+AdminLabel.TextTransparency = 1.000
+AdminLabel.TextWrapped = true
+
+Warns.Name = "Warns"
+Warns.Parent = UserInfoPanel
+Warns.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Warns.BackgroundTransparency = 1.000
+Warns.Position = UDim2.new(0.0149999997, 0, 0.493999988, 0)
+Warns.Size = UDim2.new(0.312000006, 0, 0.202000007, 0)
+
+WarnsCorner.CornerRadius = UDim.new(0, 20)
+WarnsCorner.Name = "WarnsCorner"
+WarnsCorner.Parent = Warns
+
+WarnsLabel.Name = "WarnsLabel"
+WarnsLabel.Parent = Warns
+WarnsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WarnsLabel.BackgroundTransparency = 1.000
+WarnsLabel.Position = UDim2.new(0.0402691849, 0, 0, 0)
+WarnsLabel.Size = UDim2.new(0.916000009, 0, 0.986575484, 0)
+WarnsLabel.Font = Enum.Font.GothamBold
+WarnsLabel.Text = "Warns:"
+WarnsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+WarnsLabel.TextScaled = true
+WarnsLabel.TextSize = 14.000
+WarnsLabel.TextTransparency = 1.000
+WarnsLabel.TextWrapped = true
+
+Banned.Name = "Banned"
+Banned.Parent = UserInfoPanel
+Banned.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Banned.BackgroundTransparency = 1.000
+Banned.Position = UDim2.new(0.340999991, 0, 0.493999988, 0)
+Banned.Size = UDim2.new(0.312000006, 0, 0.202000007, 0)
+
+BannedCorner.CornerRadius = UDim.new(0, 20)
+BannedCorner.Name = "BannedCorner"
+BannedCorner.Parent = Banned
+
+BannedLabel.Name = "BannedLabel"
+BannedLabel.Parent = Banned
+BannedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BannedLabel.BackgroundTransparency = 1.000
+BannedLabel.Position = UDim2.new(0.0352211855, 0, 0, 0)
+BannedLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+BannedLabel.Font = Enum.Font.GothamBold
+BannedLabel.Text = "Banned:"
+BannedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+BannedLabel.TextScaled = true
+BannedLabel.TextSize = 14.000
+BannedLabel.TextTransparency = 1.000
+BannedLabel.TextWrapped = true
+
+BanLength.Name = "BanLength"
+BanLength.Parent = UserInfoPanel
+BanLength.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+BanLength.BackgroundTransparency = 1.000
+BanLength.Position = UDim2.new(0.666999996, 0, 0.493999988, 0)
+BanLength.Size = UDim2.new(0.312000006, 0, 0.202000007, 0)
+
+BanLengthCorner.CornerRadius = UDim.new(0, 20)
+BanLengthCorner.Name = "BanLengthCorner"
+BanLengthCorner.Parent = BanLength
+
+BanLengthLabel.Name = "BanLengthLabel"
+BanLengthLabel.Parent = BanLength
+BanLengthLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BanLengthLabel.BackgroundTransparency = 1.000
+BanLengthLabel.Position = UDim2.new(0.0251579918, 0, 0, 0)
+BanLengthLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+BanLengthLabel.Font = Enum.Font.GothamBold
+BanLengthLabel.Text = "Ban Length:"
+BanLengthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+BanLengthLabel.TextScaled = true
+BanLengthLabel.TextSize = 14.000
+BanLengthLabel.TextTransparency = 1.000
+BanLengthLabel.TextWrapped = true
+
+ClearWarns.Name = "ClearWarns"
+ClearWarns.Parent = UserInfoPanel
+ClearWarns.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+ClearWarns.BackgroundTransparency = 1.000
+ClearWarns.Position = UDim2.new(0.0228492822, 0, 0.722999871, 0)
+ClearWarns.Size = UDim2.new(0.467000008, 0, 0.246999994, 0)
+
+ClearWarnsCounter.CornerRadius = UDim.new(0, 20)
+ClearWarnsCounter.Name = "ClearWarnsCounter"
+ClearWarnsCounter.Parent = ClearWarns
+
+ClearWarnsLabel.Name = "ClearWarnsLabel"
+ClearWarnsLabel.Parent = ClearWarns
+ClearWarnsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ClearWarnsLabel.BackgroundTransparency = 1.000
+ClearWarnsLabel.Position = UDim2.new(0.0251254849, 0, 0, 0)
+ClearWarnsLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+ClearWarnsLabel.Font = Enum.Font.GothamBold
+ClearWarnsLabel.Text = "Clear Warns"
+ClearWarnsLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+ClearWarnsLabel.TextScaled = true
+ClearWarnsLabel.TextSize = 14.000
+ClearWarnsLabel.TextTransparency = 1.000
+ClearWarnsLabel.TextWrapped = true
+
+ClearWarnsButton.Name = "ClearWarnsButton"
+ClearWarnsButton.Parent = ClearWarns
+ClearWarnsButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ClearWarnsButton.BackgroundTransparency = 1.000
+ClearWarnsButton.Size = UDim2.new(0, 297, 0, 68)
+ClearWarnsButton.Font = Enum.Font.SourceSans
+ClearWarnsButton.Text = ""
+ClearWarnsButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+ClearWarnsButton.TextSize = 14.000
+ClearWarnsButton.TextTransparency = 1.000
+
+Unban.Name = "Unban"
+Unban.Parent = UserInfoPanel
+Unban.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Unban.BackgroundTransparency = 1.000
+Unban.Position = UDim2.new(0.503226042, 0, 0.722999871, 0)
+Unban.Size = UDim2.new(0.467000008, 0, 0.246999994, 0)
+
+WarnsCorner_2.CornerRadius = UDim.new(0, 20)
+WarnsCorner_2.Name = "WarnsCorner"
+WarnsCorner_2.Parent = Unban
+
+UnbanLabel.Name = "UnbanLabel"
+UnbanLabel.Parent = Unban
+UnbanLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UnbanLabel.BackgroundTransparency = 1.000
+UnbanLabel.Position = UDim2.new(0.0251363516, 0, 0, 0)
+UnbanLabel.Size = UDim2.new(0.94599998, 0, 0.986575484, 0)
+UnbanLabel.Font = Enum.Font.GothamBold
+UnbanLabel.Text = "Unban"
+UnbanLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+UnbanLabel.TextScaled = true
+UnbanLabel.TextSize = 14.000
+UnbanLabel.TextTransparency = 1.000
+UnbanLabel.TextWrapped = true
+
+UnbanButton.Name = "UnbanButton"
+UnbanButton.Parent = Unban
+UnbanButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UnbanButton.BackgroundTransparency = 1.000
+UnbanButton.Size = UDim2.new(0, 297, 0, 68)
+UnbanButton.Font = Enum.Font.SourceSans
+UnbanButton.Text = ""
+UnbanButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+UnbanButton.TextSize = 14.000
+UnbanButton.TextTransparency = 1.000
+
+Whitelisted.Name = "Whitelisted"
+Whitelisted.Parent = UserInfoPanel
+Whitelisted.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Whitelisted.BackgroundTransparency = 1.000
+Whitelisted.Position = UDim2.new(0.611846209, 0, 0.257757992, 0)
+Whitelisted.Size = UDim2.new(0.370615423, 0, 0.202000007, 0)
+
+WhitelistedCorner.CornerRadius = UDim.new(0, 20)
+WhitelistedCorner.Name = "WhitelistedCorner"
+WhitelistedCorner.Parent = Whitelisted
+
+WhitelistedLabel.Name = "WhitelistedLabel"
+WhitelistedLabel.Parent = Whitelisted
+WhitelistedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WhitelistedLabel.BackgroundTransparency = 1.000
+WhitelistedLabel.Position = UDim2.new(0.0242920723, 0, 0.0176174194, 0)
+WhitelistedLabel.Size = UDim2.new(0.942086935, 0, 0.986575484, 0)
+WhitelistedLabel.Font = Enum.Font.GothamBold
+WhitelistedLabel.Text = "Whitelisted:"
+WhitelistedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+WhitelistedLabel.TextScaled = true
+WhitelistedLabel.TextSize = 14.000
+WhitelistedLabel.TextTransparency = 1.000
+WhitelistedLabel.TextWrapped = true
+
+-- Module Scripts:
+
+local fake_module_scripts = {}
+
+do -- nil.DraggableObject
+	local script = Instance.new('ModuleScript', nil)
+	script.Name = "DraggableObject"
+	local function module_script()
+		--[[
+			@Author: Spynaz
+			@Description: Enables dragging on GuiObjects. Supports both mouse and touch.
+			
+			For instructions on how to use this module, go to this link:
+			https://devforum.roblox.com/t/simple-module-for-creating-draggable-gui-elements/230678
+		--]]
+		
+		local UDim2_new = UDim2.new
+		
+		local UserInputService = game:GetService("UserInputService")
+		
+		local DraggableObject 		= {}
+		DraggableObject.__index 	= DraggableObject
+		
+		-- Sets up a new draggable object
+		function DraggableObject.new(Object)
+			local self 			= {}
+			self.Object			= Object
+			self.DragStarted	= nil
+			self.DragEnded		= nil
+			self.Dragged		= nil
+			self.Dragging		= false
+			
+			setmetatable(self, DraggableObject)
+			
+			return self
+		end
+		
+		-- Enables dragging
+		function DraggableObject:Enable()
+			local object			= self.Object
+			local dragInput			= nil
+			local dragStart			= nil
+			local startPos			= nil
+			local preparingToDrag	= false
+			
+			-- Updates the element
+			local function update(input)
+				local delta 		= input.Position - dragStart
+				local newPosition	= UDim2_new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+				object.Position 	= newPosition
+			
+				return newPosition
+			end
+			
+			self.InputBegan = object.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					preparingToDrag = true
+					--[[if self.DragStarted then
+						self.DragStarted()
+					end
+					
+					dragging	 	= true
+					dragStart 		= input.Position
+					startPos 		= Element.Position
+					--]]
+					
+					local connection 
+					connection = input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End and (self.Dragging or preparingToDrag) then
+							self.Dragging = false
+							connection:Disconnect()
+							
+							if self.DragEnded and not preparingToDrag then
+								self.DragEnded()
+							end
+							
+							preparingToDrag = false
+						end
+					end)
+				end
+			end)
+			
+			self.InputChanged = object.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					dragInput = input
+				end
+			end)
+			
+			self.InputChanged2 = UserInputService.InputChanged:Connect(function(input)
+				if object.Parent == nil then
+					self:Disable()
+					return
+				end
+				
+				if preparingToDrag then
+					preparingToDrag = false
+					
+					if self.DragStarted then
+						self.DragStarted()
+					end
+					
+					self.Dragging	= true
+					dragStart 		= input.Position
+					startPos 		= object.Position
+				end
+				
+				if input == dragInput and self.Dragging then
+					local newPosition = update(input)
+					
+					if self.Dragged then
+						self.Dragged(newPosition)
+					end
+				end
+			end)
+		end
+		
+		-- Disables dragging
+		function DraggableObject:Disable()
+			self.InputBegan:Disconnect()
+			self.InputChanged:Disconnect()
+			self.InputChanged2:Disconnect()
+			
+			if self.Dragging then
+				self.Dragging = false
+				
+				if self.DragEnded then
+					self.DragEnded()
+				end
+			end
+		end
+		
+		return DraggableObject
+		
+	end
+	fake_module_scripts[script] = module_script
+end
+
+
+-- Scripts:
+
+local function FBFHY_fake_script() -- CosmicPanel.MainHandler 
+	local script = Instance.new('LocalScript', CosmicPanel)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	-- [[DRAGGABLE/MAIN VARIABLES]] --
+	
+	local Player = game.Players.LocalPlayer
+	local CosmicPanelEvent = game.ReplicatedStorage:WaitForChild("CosmicPanelRemoteEvent", math.huge)
+	local CosmicPanel = script.Parent.Parent:WaitForChild("Cosmic Panel", math.huge)
+	
+	local DragAPI = require(script:WaitForChild("DraggableObject", math.huge))
+	local DragFrame = DragAPI.new(script.Parent:WaitForChild("MainBackround", math.huge))
+	
+	local SearchBar = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("SearchUser", math.huge):WaitForChild("SearchUserText", math.huge)
+	local HeadImage = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("HeadShot", math.huge):WaitForChild("HeadShotImage", math.huge)
+	local UserName = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("Name", math.huge):WaitForChild("NameLabel", math.huge)
+	local UserID = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("ID", math.huge):WaitForChild("IDLabel", math.huge)
+	local UserAdmin = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("Admin", math.huge):WaitForChild("AdminLabel", math.huge)
+	local UserWhitelist = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("Whitelisted", math.huge):WaitForChild("WhitelistedLabel", math.huge)
+	local UserWarns = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("Warns", math.huge):WaitForChild("WarnsLabel", math.huge)
+	local UserBanned = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround"):WaitForChild("UserInfoPanel"):WaitForChild("Banned"):WaitForChild("BannedLabel")
+	local UserBanLength = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("BanLength", math.huge):WaitForChild("BanLengthLabel", math.huge)
+	local ClearWarnsButton = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("ClearWarns", math.huge):WaitForChild("ClearWarnsButton", math.huge)
+	local UnbanButton = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("SecondaryBackround", math.huge):WaitForChild("UserInfoPanel", math.huge):WaitForChild("Unban", math.huge):WaitForChild("UnbanButton", math.huge)
+	local RefreshButton = CosmicPanel:WaitForChild("MainBackround", math.huge):WaitForChild("TitleBackround", math.huge):WaitForChild("Refresh", math.huge):WaitForChild("RefreshButton", math.huge)
+	
+	DragFrame:Enable()
+	
+	-- [[DISABLE/ENABLED GUI]] --
+	
+	local UserInputService = game:GetService("UserInputService")
+	local EnableDisableKey = Enum.KeyCode.Insert
+	local TweenService = game:GetService("TweenService")
+	local Fade = TweenInfo.new(.25)
+	
+	local Clicked = false
+	local ClearWarnClicked = false
+	local UnbanClickd = false
+	
+	local function EnableGui()
+		CosmicPanel.Enabled = true
+		for _, ImageLabels in pairs(CosmicPanel:GetDescendants()) do
+			if ImageLabels:IsA("ImageLabel") then
+				local DisableImageLabels = TweenService:Create(ImageLabels, Fade, {ImageTransparency = 0}):Play()
+			end
+		end
+		for _, Frames in pairs(CosmicPanel:GetDescendants()) do
+			if Frames:IsA("Frame") then
+				local DisableImageLabels = TweenService:Create(Frames, Fade, {BackgroundTransparency = 0}):Play()
+			end
+		end
+		for _, TextLabels in pairs(CosmicPanel:GetDescendants()) do
+			if TextLabels:IsA("TextLabel") or TextLabels:IsA("TextBox") then
+				local TextLabels = TweenService:Create(TextLabels, Fade, {TextTransparency = 0}):Play()
+			end
+		end
+		for _, TextStroke in pairs(CosmicPanel:GetDescendants()) do
+			if TextStroke:IsA("UIStroke") then
+				local TextStroke = TweenService:Create(TextStroke, Fade, {Transparency = 0}):Play()
+			end
+		end
+	end
+	
+	local function DisableGui()
+		for _, ImageLabels in pairs(CosmicPanel:GetDescendants()) do
+			if ImageLabels:IsA("ImageLabel") then
+				local DisableImageLabels = TweenService:Create(ImageLabels, Fade, {ImageTransparency = 1}):Play()
+			end
+		end
+		for _, Frames in pairs(CosmicPanel:GetDescendants()) do
+			if Frames:IsA("Frame") then
+				local DisableImageLabels = TweenService:Create(Frames, Fade, {BackgroundTransparency = 1}):Play()
+			end
+		end
+		for _, TextLabels in pairs(CosmicPanel:GetDescendants()) do
+			if TextLabels:IsA("TextLabel") or TextLabels:IsA("TextBox") then
+				local TextLabels = TweenService:Create(TextLabels, Fade, {TextTransparency = 1}):Play()
+			end
+		end
+		for _, TextStroke in pairs(CosmicPanel:GetDescendants()) do
+			if TextStroke:IsA("UIStroke") then
+				local TextStroke = TweenService:Create(TextStroke, Fade, {Transparency = 1}):Play()
+			end
+		end
+		task.wait(.25)
+		CosmicPanel.Enabled = false
+		SearchBar.Text = "Search by ID/Username"
+		HeadImage.Image = ""
+		UserName.Text = "User:"
+		UserID.Text = "ID:"
+		UserAdmin.Text = "Admin:"
+		UserWhitelist.Text = "Whitelisted:"
+		UserWarns.Text = "Warns:"
+		UserBanned.Text = "Banned:"
+		UserBanLength.Text = "Ban Length:"
+		ClearWarnsButton.Parent.ClearWarnsLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+		UnbanButton.Parent.UnbanLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+	end
+	
+	UserInputService.InputBegan:Connect(function(Key, GPE)
+		if not Clicked then 
+			Clicked = true
+			if Key.KeyCode == EnableDisableKey and CosmicPanel.Enabled == true then
+				DisableGui()
+			else if Key.KeyCode == EnableDisableKey and CosmicPanel.Enabled == false then
+					EnableGui()
+				end
+			end
+		end
+		task.wait(.25)
+		if Clicked then
+			Clicked = false
+		end
+	end)
+	
+	-- [[REFRESH BUTTON]] --
+	
+	RefreshButton.MouseButton1Down:Connect(function()
+	
+		SearchBar.Text = "Search by ID/Username"
+		HeadImage.Image = ""
+		UserName.Text = "User:"
+		UserID.Text = "ID:"
+		UserAdmin.Text = "Admin:"
+		UserWhitelist.Text = "Whitelisted:"
+		UserWarns.Text = "Warns:"
+		UserBanned.Text = "Banned:"
+		UserBanLength.Text = "Ban Length:"
+		ClearWarnsButton.Parent.ClearWarnsLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+		UnbanButton.Parent.UnbanLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+	end)
+	
+	-- [[MAIN SEARCH HANDLER]] --
+	
+	SearchBar.FocusLost:Connect(function(PressedEnter) 
+		if PressedEnter then
+			CosmicPanelEvent:FireServer(SearchBar.Text, "Search")
+		end
+	end)
+	
+	CosmicPanelEvent.OnClientEvent:Connect(function(Username, ID, Admin, Whitelist, Warnings, Banned, BanLength)
+		HeadImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=+"..ID.."+&width=420&height=420&format=png"
+		UserName.Text = "User: "..game.Players:GetNameFromUserIdAsync(Username)
+		UserID.Text = "ID: "..ID
+		if Admin == nil then
+			UserAdmin.Text = "Admin: No"
+		else if Admin == true then
+				UserAdmin.Text = "Admin: Yes"
+			end
+		end
+		if Whitelist == nil then
+			UserWhitelist.Text = "Whitelisted: No"
+		else if Whitelist == true then
+				UserWhitelist.Text = "Whitelisted: Yes"
+			end
+		end
+		UserWarns.Text = "Warnings: "..Warnings
+		if Banned == nil then
+			UserBanned.Text = "Banned: No"
+		else if Banned == true then
+				UserBanned.Text = "Banned: Yes"
+			end
+		end
+		UserBanLength.Text = "Ban Length: "..BanLength
+		if tonumber(Warnings) > 0 then
+			ClearWarnsButton.Parent.ClearWarnsLabel.TextColor3 = Color3.fromRGB(129, 255, 115)
+		end
+		if Banned then
+			UnbanButton.Parent.UnbanLabel.TextColor3 = Color3.fromRGB(129, 255, 115)
+		end
+	end)
+	
+	-- [[ CLEAR WARN HANDLER ]] --
+	
+	ClearWarnsButton.MouseButton1Down:Connect(function()
+		if ClearWarnsButton.Parent.ClearWarnsLabel.TextColor3 == Color3.fromRGB(129, 255, 115) then
+			local CanClear = ClearWarnsButton:GetAttribute("CanClear")
+			if not CanClear then
+				ClearWarnsButton.Parent.ClearWarnsLabel.Text = "Click Again To Clear Warns"
+				ClearWarnsButton:SetAttribute("CanClear", true)
+			else if CanClear then
+					ClearWarnsButton.Parent.ClearWarnsLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+					ClearWarnsButton:SetAttribute("CanClear", false)
+					ClearWarnsButton.Parent.ClearWarnsLabel.Text = "Warns Cleared"
+					CosmicPanelEvent:FireServer(SearchBar.Text, "Clear Warns")
+					task.wait(2)
+					CosmicPanelEvent:FireServer(SearchBar.Text, "Search")
+					ClearWarnsButton.Parent.ClearWarnsLabel.Text = "Clear Warns"
+				end
+			end
+		end
+	end)
+	
+	UnbanButton.MouseButton1Down:Connect(function()
+		if UnbanButton.Parent.UnbanLabel.TextColor3 == Color3.fromRGB(129, 255, 115) then
+			local CanClear = UnbanButton:GetAttribute("CanUnban")
+			if not CanClear then
+				UnbanButton.Parent.UnbanLabel.Text = "Click Again To Unban"
+				UnbanButton:SetAttribute("CanUnban", true)
+			else if CanClear then
+					UnbanButton.Parent.UnbanLabel.TextColor3 = Color3.fromRGB(255, 115, 115)
+					UnbanButton:SetAttribute("CanUnban", false)
+					UnbanButton.Parent.UnbanLabel.Text = "Warns Cleared"
+					CosmicPanelEvent:FireServer(SearchBar.Text, "Unban")
+					task.wait(2)
+					CosmicPanelEvent:FireServer(SearchBar.Text, "Search")
+					UnbanButton.Parent.UnbanLabel.Text = "Clear Warns"
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(FBFHY_fake_script)()
